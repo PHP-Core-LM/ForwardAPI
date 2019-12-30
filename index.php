@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 
 if (isset($_POST['idProvince'])) {
     $idProvince = $_POST['idProvince'];
-    $url = ""https://thongtindoanhnghiep.co/api/city/" . $idProvince . "/district";
+    $url = "https://thongtindoanhnghiep.co/api/city/" . $idProvince . "/district";
     $result = sendRequest($url);
     if ($result == false) {
         echo json_encode(array("status" => false));
