@@ -2,9 +2,8 @@
 header("Access-Control-Allow-Origin: *");
 
 
-if (isset($_POST['idProvince'])) {
-    $idProvince = $_POST['idProvince'];
-    $url = "https://thongtindoanhnghiep.co/api/city/" . $idProvince . "/district";
+if (isset($_REQUEST['url'])) {
+    $urlRequest = $_REQUEST['url'];
     $result = sendRequest($url);
     if ($result == false) {
         echo json_encode(array("status" => false));
@@ -13,20 +12,6 @@ if (isset($_POST['idProvince'])) {
         echo $result;
     }
 }
-
-
-if (isset($_POST['idDistrict'])) {
-    $idDistrict = $_POST['idDistrict'];
-    $url = "https://thongtindoanhnghiep.co/api/district/" . $idDistrict . "/ward";
-    $result = sendRequest($url);
-    if ($result == false) {
-        echo json_encode(array("status" => false));
-    }
-    else {
-        echo $result;
-    }
-}
-
 
 function sendRequest($url, $data = array()){
     $ch = curl_init();
