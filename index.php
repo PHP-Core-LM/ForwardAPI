@@ -5,6 +5,7 @@ header("Access-Control-Allow-Origin: *");
 if (isset($_GET['url'])) {
     $urlRequest = urldecode($_GET['url']);
     $result = sendRequest($urlRequest);
+    echo $result;
     if ($result == false) {
         echo json_encode(array("status" => false));
     }
